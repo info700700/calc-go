@@ -7,5 +7,14 @@ import (
 )
 
 func TestExec(t *testing.T) {
-	interpreter.Exec()
+	got, err := interpreter.Exec("1+1")
+
+	if err != nil {
+		t.Error("Unexpected error")
+	}
+
+	const want = 2
+	if got != want {
+		t.Errorf("Exec(\"1+1\") = %d; want %d", got, want)
+	}
 }
