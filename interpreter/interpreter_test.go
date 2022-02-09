@@ -22,13 +22,13 @@ func TestExec(t *testing.T) {
 	}
 
 	for _, c := range testCases {
-		got, err := interpreter.Exec(c.str)
+		actual, err := interpreter.Exec(c.str)
 		if err != nil {
 			t.Errorf("Unexpected error: %v", err)
 		}
 
-		if got != c.expected {
-			t.Errorf("Exec(%q) == %d, expected %d", c.str, got, c.expected)
+		if actual != c.expected {
+			t.Errorf("Exec(%q) == %d, expected %d", c.str, actual, c.expected)
 		}
 	}
 }
