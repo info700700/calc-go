@@ -21,14 +21,14 @@ func TestExec(t *testing.T) {
 		{"10+20", 30},
 	}
 
-	for _, c := range testCases {
-		actual, err := interpreter.Exec(c.str)
+	for _, tc := range testCases {
+		actual, err := interpreter.Exec(tc.str)
 		if err != nil {
 			t.Errorf("Unexpected error: %v", err)
 		}
 
-		if actual != c.expected {
-			t.Errorf("Exec(%q) == %d, expected %d", c.str, actual, c.expected)
+		if actual != tc.expected {
+			t.Errorf("Exec(%q) == %d, expected %d", tc.str, actual, tc.expected)
 		}
 	}
 }
