@@ -7,7 +7,7 @@ import (
 )
 
 func TestExec(t *testing.T) {
-	cases := []struct {
+	testCases := []struct {
 		in   string
 		want uint32
 	}{
@@ -15,7 +15,7 @@ func TestExec(t *testing.T) {
 		{"1+1", 2},
 	}
 
-	for _, c := range cases {
+	for _, c := range testCases {
 		got, err := interpreter.Exec(c.in)
 		if err != nil {
 			t.Error("Unexpected error")
