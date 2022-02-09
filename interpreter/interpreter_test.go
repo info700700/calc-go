@@ -22,7 +22,7 @@ func TestExec(t *testing.T) {
 	for _, c := range testCases {
 		got, err := interpreter.Exec(c.str)
 		if err != nil {
-			t.Error("Unexpected error")
+			t.Errorf("Unexpected error: %v", err)
 		}
 
 		if got != c.want {
