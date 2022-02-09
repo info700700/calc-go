@@ -8,8 +8,8 @@ import (
 
 func TestExec(t *testing.T) {
 	testCases := []struct {
-		str  string
-		want uint32
+		str      string
+		expected uint32
 	}{
 		{"1", 1},
 		{" 1", 1},  // Пробел в начале строки.
@@ -27,8 +27,8 @@ func TestExec(t *testing.T) {
 			t.Errorf("Unexpected error: %v", err)
 		}
 
-		if got != c.want {
-			t.Errorf("Exec(%q) == %d, want %d", c.str, got, c.want)
+		if got != c.expected {
+			t.Errorf("Exec(%q) == %d, expected %d", c.str, got, c.expected)
 		}
 	}
 }
