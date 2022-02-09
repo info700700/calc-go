@@ -8,7 +8,7 @@ import (
 
 func TestExec(t *testing.T) {
 	testCases := []struct {
-		in   string
+		str  string
 		want uint32
 	}{
 		{"1", 1},
@@ -16,13 +16,13 @@ func TestExec(t *testing.T) {
 	}
 
 	for _, c := range testCases {
-		got, err := interpreter.Exec(c.in)
+		got, err := interpreter.Exec(c.str)
 		if err != nil {
 			t.Error("Unexpected error")
 		}
 
 		if got != c.want {
-			t.Errorf("Exec(%q) == %d, want %d", c.in, got, c.want)
+			t.Errorf("Exec(%q) == %d, want %d", c.str, got, c.want)
 		}
 	}
 }
