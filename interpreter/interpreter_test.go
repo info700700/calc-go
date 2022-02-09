@@ -7,14 +7,22 @@ import (
 )
 
 func TestExec(t *testing.T) {
-	got, err := interpreter.Exec("1+1")
-
-	if err != nil {
-		t.Error("Unexpected error")
+	cases := []struct {
+		in   string
+		want uint32
+	}{
+		{"1", 1},
+		{"1+1", 2},
 	}
 
-	const want = 2
-	if got != want {
-		t.Errorf("Exec(\"1+1\") = %d; want %d", got, want)
+	for _, c := range cases {
+		got, err := interpreter.Exec(c.in)
+		if err != nil {
+			t.Error("Unexpected error")
+		}
+
+		if got != c.want {
+			t.Errorf("Exec(%q) == %d, want %d", c.in, got, c.want)
+		}
 	}
 }
